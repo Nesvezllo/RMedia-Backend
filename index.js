@@ -11,8 +11,8 @@ import { create, getAll, getOne, remove, update } from './controllers/PostContro
 import handleValidationErrors from './utils/handleValidationErrors.js'
 
 
-mongoose.connect(
-  'mongodb+srv://Kayfoon:Sultanoff@cluster0.zoejw.mongodb.net/data?retryWrites=true&w=majority',)
+mongoose.
+  connect(process.env.MONGODB_URL)
   .then(() => {console.log("ok")})
   .catch((err) => console.log("DB error", err))
 
@@ -50,7 +50,7 @@ app.get("/posts/:id", getOne);
 app.delete("/posts/:id", checkAuth, remove)
 app.patch("/posts/:id", checkAuth, postCreateValidation, handleValidationErrors, update)
 
-app.listen(4000, (err) => {
+app.listen(process.env.PORT || 4000, (err) => {
   if (err) {
     return console.log(err);
   };
