@@ -2,6 +2,7 @@ import express from "express";
 import mongoose from 'mongoose';
 import multer from "multer"
 import cors from "cors";
+import dotenv from 'dotenv';
 
 import { regValidation } from './validations/auth.js';
 import { postCreateValidation } from "./validations/post.js";
@@ -9,6 +10,8 @@ import checkAuth from './utils/checkAuth.js';
 import { register, login, getMe } from './controllers/UserController.js'
 import { create, getAll, getOne, remove, update } from './controllers/PostController.js';
 import handleValidationErrors from './utils/handleValidationErrors.js'
+
+dotenv.config();
 
 
 mongoose.
