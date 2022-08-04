@@ -95,11 +95,8 @@ export const getMe = async (req, res) => {
 
     res.json({
       ...userData,
-    })
-
-    res.json({
       success: true,
-    });
+    })
   } catch (error) {
     res.status(500).json({
       message: "Не удалось получить данные",
