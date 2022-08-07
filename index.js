@@ -44,7 +44,7 @@ app.use("/uploads", express.static("uploads"))
 
 app.post("/auth/login", handleValidationErrors, login);
 app.post("/auth/reg", regValidation, handleValidationErrors,  register);
-app.post("/uploads", checkAuth, upload.single("image"), (req, res) => {
+app.post("/uploads", checkAuth, upload.single('image'), (req, res) => {
   res.json({
     url: `/uploads/${req.file.originalname}`
   })
