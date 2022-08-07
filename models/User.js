@@ -14,7 +14,10 @@ import mongoose from 'mongoose';
       type: String,
       required: true,
     },
-    avatarURL: String,
+    avatarURL: {
+      type: String,
+      required: false,
+    },
  },
  
   {
